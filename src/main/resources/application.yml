@@ -1,0 +1,68 @@
+version: @project.version@
+
+spring :
+  #cache:
+    #cache-names: cache1,cache2,cache3
+  redis :
+    #cache-manager:
+    timeout : 0
+    database : 0
+    host : 127.0.0.1
+    port : 6379
+    password :
+    pool :
+      max-active : 8
+      max-wait : -1
+      max-idle : 8
+      min-idle : 0
+
+  datasource :
+    url : jdbc:mysql://127.0.0.1:3306/dm?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&autoReconnect=true&useSSL=false
+    username : root
+    password : toor
+    driver-class-name : com.mysql.cj.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
+    max-active: 5
+    max-idle: 3
+    test-on-borrow: true
+    test-while-idle: true
+    validation-query: SELECT 1;
+
+  jpa :
+    database : MYSQL
+    show-sql : true
+    hibernate :
+      ddl-auto: update
+
+
+
+#  cluster:
+#    nodes:
+#      - 192.168.91.5:9001
+#      - 192.168.91.5:9002
+#      - 192.168.91.5:9003
+#      - 192.168.91.5:9004
+#      - 192.168.91.5:9005
+#      - 192.168.91.5:9006
+
+# http :
+#    maxTotal : 100
+#    defaultMaxPerRoute : 20
+#    connectTimeout : 1000
+#    connectionRequestTimeout : 500
+#    socketTimeout : 10000
+#   staleConnectionCheckEnabled : true
+
+#cache:
+#  multi:
+#    cacheNames: cache1,cache2,cache3
+#    ehcache:
+#      expireAfterWrite: 5000
+#      maxEntry: 1000
+#    redis:
+#      defaultExpiration: 60000
+#      expires:
+#        cache1: 50000
+#        cache2: 70000
+#        cache3: 70000
+
